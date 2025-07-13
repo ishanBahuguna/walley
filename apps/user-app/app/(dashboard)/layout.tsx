@@ -21,6 +21,7 @@ export default function Layout({
             icon={<TransactionsIcon />}
             title="Transactions"
           />
+          <SidebarItem href={"/p2p"} title="P2P" icon={<P2PIcon />} />
         </div>
       </div>
       {children}
@@ -81,6 +82,21 @@ function TransactionsIcon() {
         stroke-linejoin="round"
         d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
       />
+    </svg>
+  );
+}
+
+function P2PIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path d="M18 7.05a1 1 0 0 0-1-1L9 6a1 1 0 0 0 0 2h5.56l-8.27 8.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L16 9.42V15a1 1 0 0 0 1 1 1 1 0 0 0 1-1z" />
     </svg>
   );
 }

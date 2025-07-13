@@ -7,6 +7,9 @@ app.use(express.json())
 app.post("/hdfcWebhook", async (req, res) => {
     //TODO: Add zod validation here?
     //TODO: HDFC bank should ideally send us a secret so we know this is sent by them
+    // TODO : If req is resend then balance increases so better to put a check that transaction should only happen if 
+    // status : processing and sufficent balance is present in users bank account
+    
     const paymentInformation: {
         token: string;
         userId: string;
