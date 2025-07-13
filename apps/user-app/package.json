@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "start-user-app": "cd ./apps/user-app && npm run start"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
