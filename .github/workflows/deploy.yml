@@ -29,4 +29,19 @@ jobs:
       - name: Verify Pushed Image
         run: docker pull ishanbahuguna/walley:latest # Replace with your Docker Hub username and repository
 
-      
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          sudo docker pull ishanbahuguna/walley:latest
+          sudo docker stop walley || true 
+          sudo docker rm walley || true
+          sudo docker run -d --name walley -p 3005:3000 ishanbahuguna/walley:latest
+
+        # pull the latest image
+        # stop the old container 
+        # remove the old container
+        # run new container
