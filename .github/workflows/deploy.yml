@@ -44,7 +44,7 @@ jobs:
             -p 3005:3000 \
             -e NEXTAUTH_URL=http://userapp.lumiec2test.shop \
             -e NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} \
-            -e DATABASE_URL=${{secrets.DATABASE_URL}}
+            -e DATABASE_URL=${{secrets.DATABASE_URL}} \
             ishanbahuguna/walley:latest
 
         # pull the latest image
