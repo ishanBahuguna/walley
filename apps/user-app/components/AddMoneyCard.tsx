@@ -6,6 +6,9 @@ import { Select } from "@repo/ui/select";
 import { useState } from "react";
 import { TextInput } from "@repo/ui/textInput";
 import { createOnRampTransactions } from "../app/lib/actions/createOnRampTransaction";
+import prisma from "@repo/db/client";
+import { useSession } from "next-auth/react";
+import { authOptions } from "../app/lib/auth";
 
 const SUPPORTED_BANKS = [
   {
@@ -18,6 +21,8 @@ const SUPPORTED_BANKS = [
   },
 ];
 
+
+
 export const AddMoney = () => {
   const [redirectUrl, setRedirectUrl] = useState(
     SUPPORTED_BANKS[0]?.redirectUrl
@@ -25,6 +30,8 @@ export const AddMoney = () => {
 
   const [amount  , setAmount] = useState(0);
   const [provider , setProvider] = useState(SUPPORTED_BANKS[0]?.name || "");
+  const [error , setError] = useState<boolean>(false);
+
 
 
   return (
